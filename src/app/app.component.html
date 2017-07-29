@@ -5,3 +5,8 @@
 <br><br>
 <button (click)="increment10()">Increment 10</button>
 <button (click)="decrement10()">Decrement 10</button>
+<br><br>
+<h3>Queue: {{ queue | async }}</h3>
+Name: <input type="text" [(ngModel)]="name">
+<br>
+<button (click)="add()">Add</button>

@@ -1,9 +1,12 @@
 import { counterReducer } from "./counter.reducer";
+import { queueReducer } from "./queue.reducer";
 
 export interface AppState {
-    counter: number;
+    counter: number,
+    queue: number[]
 };
 
 export const reducers = {
-    counter: counterReducer
+    counter: counterReducer,
+    queue: queueReducer
 };

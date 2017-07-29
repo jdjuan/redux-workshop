@@ -1,3 +1,4 @@
+import { ADD, Add } from './queue.reducer';
 import { AppState } from './reducers';
 import { Component } from '@angular/core';
 import { Observable } from "rxjs/Observable";
@@ -11,10 +12,15 @@ import { INCREMENT, DECREMENT, RESET, INCREMENT10, DECREMENT10 } from './counter
 })
 export class AppComponent {
   counter: Observable<number>;
+  queue: Observable<number[]>;
+  name: string;
 
   constructor(private store: Store<AppState>) {
     this.counter = store.select<number>((state: AppState) => {
       return state.counter;
+    });
+    this.queue = store.select<number[]>((state: AppState) => {
+      return state.queue;
     });
   }
 
@@ -36,5 +42,9 @@ export class AppComponent {
 
   reset() {
     this.store.dispatch({ type: RESET });
+  }
+
+  add() {
+    this.store.dispatch(new Add(this.name));
   }
 }
